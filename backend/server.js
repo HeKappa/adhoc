@@ -89,6 +89,18 @@ io.on('connection', (socket) => {
     });
 });
 
+const path = require('path');
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+    });
+}
+
+
+
 // Connect to MongoDB and start the server
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
