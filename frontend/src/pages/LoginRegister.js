@@ -22,11 +22,11 @@ function LoginRegister() {
         e.preventDefault();
         try {
             if (isRegister) {
-                await axios.post('http://localhost:5000/api/users/register', form);
+                await axios.post('https://sleepy-lowlands-38727-25aa40ad3302.herokuapp.com/api/users/register', form);
                 alert('Registration successful. Please login.');
                 setIsRegister(false);
             } else {
-                const res = await axios.post('http://localhost:5000/api/users/login', form);
+                const res = await axios.post('https://sleepy-lowlands-38727-25aa40ad3302.herokuapp.com/api/users/login', form);
                 if (res.data.message === 'Login successful') {
                     localStorage.setItem('username', res.data.username);
                     if (socket) {
