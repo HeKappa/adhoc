@@ -102,7 +102,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 // Connect to MongoDB and start the server
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect('mongodb+srv://user:user@cluster0.tz0z4xz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
