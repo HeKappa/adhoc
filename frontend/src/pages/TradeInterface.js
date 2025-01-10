@@ -18,7 +18,7 @@ function TradeInterface() {
 
     const fetchListings = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/trade-listings');
+            const res = await axios.get('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/trade-listings');
             // Exclude own listings
             const otherListings = res.data.filter(listing => listing.postedBy !== username);
             setListings(otherListings);
@@ -30,7 +30,7 @@ function TradeInterface() {
 
     const fetchAvailableProducts = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/products');
+            const res = await axios.get('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/products');
             const myProducts = res.data.filter(product => product.offeredBy === username);
             setAvailableProducts(myProducts);
             console.log('Fetched Available Products:', myProducts);

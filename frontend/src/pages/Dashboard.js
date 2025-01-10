@@ -30,11 +30,11 @@ function Dashboard() {
         if (window.confirm(`Accept Trade Request from ${request.sender}: ${request.description}`)) {
             try {
                 // Fetch the listing details
-                const listingRes = await axios.get(`http://localhost:5000/api/trade-listings/${request.listingId}`);
+                const listingRes = await axios.get(`https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/trade-listings/${request.listingId}`);
                 const listing = listingRes.data;
 
                 // Create Trade
-                const tradeRes = await axios.post('http://localhost:5000/api/trades', {
+                const tradeRes = await axios.post('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/trades', {
                     offerBy: request.sender,
                     acceptedBy: username,
                     productOffered: request.offeredProduct,

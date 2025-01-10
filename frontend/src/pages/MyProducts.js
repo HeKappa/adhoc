@@ -12,7 +12,7 @@ function MyProducts() {
   }, []);
 
   const fetchProducts = async () => {
-    const res = await axios.get('http://localhost:5000/api/products');
+    const res = await axios.get('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/products');
     const myProducts = res.data.filter(product => product.offeredBy === username);
     setProducts(myProducts);
   };
@@ -24,7 +24,7 @@ function MyProducts() {
   const handleAddProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/products', { ...form, offeredBy: username });
+      await axios.post('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/products', { ...form, offeredBy: username });
       fetchProducts();
       setForm({ name: '', category: '', location: '', quantity: '' });
     } catch (error) {

@@ -11,7 +11,7 @@ function TradeHistory() {
   }, []);
 
   const fetchTrades = async () => {
-    const res = await axios.get('http://localhost:5000/api/trades');
+    const res = await axios.get('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/trades');
     const userTrades = res.data.filter(trade => trade.offerBy === username || trade.acceptedBy === username);
     setTrades(userTrades);
   };

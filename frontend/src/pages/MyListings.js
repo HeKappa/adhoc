@@ -12,15 +12,15 @@ function MyListings() {
     fetchListings();
     fetchProducts();
   }, []);
-
+  
   const fetchListings = async () => {
-    const res = await axios.get('https://sleepy-lowlands-38727-25aa40ad3302.herokuapp.com/api/trade-listings');
+    const res = await axios.get('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/trade-listings');
     const myListings = res.data.filter(listing => listing.postedBy === username);
     setListings(myListings);
   };
 
   const fetchProducts = async () => {
-    const res = await axios.get('https://sleepy-lowlands-38727-25aa40ad3302.herokuapp.com/api/products');
+    const res = await axios.get('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/products');
     const myProducts = res.data.filter(product => product.offeredBy === username);
     setProducts(myProducts);
   };
@@ -32,7 +32,7 @@ function MyListings() {
   const handleAddListing = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://sleepy-lowlands-38727-25aa40ad3302.herokuapp.com/api/trade-listings', { ...form, postedBy: username });
+      await axios.post('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com/api/trade-listings', { ...form, postedBy: username });
       fetchListings();
       setForm({ product: '', price: '', description: '', shippingOptions: 'STANDARD' });
     } catch (error) {
