@@ -14,7 +14,7 @@ export const SocketProvider = ({ children }) => {
     const [tradeRequests, setTradeRequests] = useState([]);
 
     useEffect(() => {
-        const newSocket = io('http://localhost:5000', {
+        const newSocket = io('https://my-adhoc-dianomi-7a115e6467ad.herokuapp.com', {
             transports: ['websocket', 'polling'],
         });
         setSocket(newSocket);
